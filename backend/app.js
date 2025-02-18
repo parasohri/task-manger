@@ -9,7 +9,12 @@ const fastify = Fastify({
   import {userRoute} from './routes/user.routes.js';
   import { taskRoute } from './routes/task.routes.js';
   dotenv.config();
-  fastify.register(fastifyCors,{ origin: '*' });
+  fastify.register(fastifyCors, {
+    origin: ['https://task-manger-frontend-xi.vercel.app'],  // Allow only your frontend
+    methods: ['GET', 'POST', 'PUT', 'DELETE'],               // Allowed HTTP methods
+    allowedHeaders: ['Content-Type', 'Authorization'],       // Add Content-Type
+    credentials: true                                        // Allow cookies if needed
+  });
   dbconnect();
   userRoute(fastify);
   taskRoute(fastify);
