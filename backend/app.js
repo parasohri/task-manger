@@ -16,37 +16,13 @@ const fastify = Fastify({
   fastify.route({
     method: 'GET',
     url: '/',
-    schema: {
-      // request needs to have a querystring with a `name` parameter
-      querystring: {
-        type: 'object',
-        properties: {
-            name: { type: 'string'}
-        },
-        required: ['name'],
-      },
-      // the response needs to be an object with an `hello` property of type 'string'
-      response: {
-        200: {
-          type: 'object',
-          properties: {
-            hello: { type: 'string' }
-          }
-        }
-      }
+    handler:(request,reply)=>{
+reply.status(201).send("ds")
+    }
     },
     
-    // this function is executed for every request before the handler is executed
-    preHandler: async (request, reply) => {
-      // E.g. check authentication
-    //   if (request.query.name !== "paras") {
-    //     reply.status(401).send({ error: "Unauthorized" });
-    // }
-    },
-    handler: async (request, reply) => {
-      return { hello: 'world' }
-    }
-  })
+    
+  )
   
   try {
      fastify.listen({ port: 3000 })
