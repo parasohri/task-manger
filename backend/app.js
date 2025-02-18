@@ -11,7 +11,7 @@ const fastify = Fastify({
   dotenv.config();
   fastify.register(fastifyCors, {
     origin: ['https://task-manger-frontend-xi.vercel.app'],  // Allow only your frontend
-    methods: ['GET', 'POST', 'PUT', 'DELETE'],               // Allowed HTTP methods
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH'],               // Allowed HTTP methods
     allowedHeaders: ['Content-Type', 'Authorization'],       // Add Content-Type
     credentials: true                                        // Allow cookies if needed
   });
