@@ -14,7 +14,7 @@ const fastify = Fastify({
   userRoute(fastify);
   taskRoute(fastify);
   fastify.get('/', (request, reply) => {
-    reply.send('Hello World!');
+    return reply.send('Hello World!');
 });
   
   
