@@ -13,16 +13,10 @@ const fastify = Fastify({
   dbconnect();
   userRoute(fastify);
   taskRoute(fastify);
-  fastify.route({
-    method: 'GET',
-    url: '/',
-    handler:(request,reply)=>{
-reply.status(201).send("ds")
-    }
-    },
-    
-    
-  )
+  fastify.get('/', (request, reply) => {
+    reply.send('Hello World!');
+});
+  
   
   try {
      fastify.listen({ port: 3000 })
