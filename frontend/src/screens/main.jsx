@@ -11,7 +11,7 @@ export const TaskManager = () => {
     const dispatch = useDispatch();
     const navigate=useNavigate()
    
-    const [date, setDate] = useState(new Date().toISOString());
+    const [date, setDate] = useState(new Date().toLocaleString());
     const [tasks, setTasks] = useState([]);
     const [newTask, setNewTask] = useState({ title: '', description: '' });
     const y = useSelector(state => state.auth.status);
